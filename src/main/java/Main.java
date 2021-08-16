@@ -45,8 +45,11 @@ public class Main {
         List<Integer> lista = new ArrayList<>();
 
         for (int i = 0; i < patroni.toArray().length; i++) {
-            Integer patroniProgu = Integer.parseInt(patroni.get(i).text().split(" ")[1]);
-            lista.add(patroniProgu);
+            String[] split = patroni.get(i).text().split(" ");
+            if (split.length > 1) {
+                Integer patroniProgu = Integer.parseInt(split[1]);
+                lista.add(patroniProgu);
+            }
         }
 
         return lista;
