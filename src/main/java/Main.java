@@ -19,11 +19,11 @@ public class Main {
         Elements kwoty = document.getElementsByClass("author__stats--number");
 
         List<Integer> cenaList = createCenaList(kwoty);
+        List<Integer> patroniList = createPatroniList(patroni);
+
 
         komunitakPierwszy(cenaList);
-
-        Integer pelnaKwota = przeliczKwoty(createPatroniList(patroni), cenaList);
-
+        Integer pelnaKwota = przeliczKwoty(patroniList, cenaList);
         komunitakDrugi(pelnaKwota);
 
         saveFile(pelnaKwota, aktualnaData());
