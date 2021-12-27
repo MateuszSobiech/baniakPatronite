@@ -10,8 +10,5 @@
         <module name="baniakPatronite" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Baniak" target="14" />
-    </bytecodeTargetLevel>
   </component>
 </project>
