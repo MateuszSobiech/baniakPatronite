@@ -66,11 +66,11 @@ public class Main {
     }
 
     private static Integer przeliczKwoty(List<Integer> patroniList, List<Integer> cenaList) {
-        Integer pelnaKwota = 0;
+        int pelnaKwota = 0;
         for (int i = 0; i < patroniList.toArray().length; i++) {
             Integer patron = patroniList.get(i);
             Integer cena = cenaList.get(i + 1);
-            Integer suma = patron * cena;
+            int suma = patron * cena;
 
             pelnaKwota += suma;
             System.out.println("Patroni(" + cena + "zł): " + patron + " * " + cena + " zł = " + suma + " zł");
@@ -85,23 +85,23 @@ public class Main {
         String odp = scanner.nextLine();
 
         if (odp.equals("y")) {
-            String data = "";
+            StringBuilder data = new StringBuilder();
             File myObj = new File("pratronite.csv");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
-                data += myReader.nextLine() + "\n";
+                data.append(myReader.nextLine()).append("\n");
             }
 
             FileWriter fileWriter = new FileWriter("pratronite.csv");
-            fileWriter.write(data);
+            fileWriter.write(data.toString());
             fileWriter.write(aktualnaData + "," + pelnaKwota + ",PLN");
             fileWriter.close();
 
             System.out.println("Zapisano");
         } else if (odp.equals("n")) {
-            return;
-        } else {
             System.out.println("Nie zapisano i opuszczono aplikacje");
+        } else {
+            System.out.println("Nieznana komenda, opuszczono aplikacje");
         }
     }
 
